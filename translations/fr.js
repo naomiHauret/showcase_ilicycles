@@ -5,5 +5,6 @@ export default {
     ourSavoirFaire: "Notre savoir-faire",
     ourProduct: "Notre produit",
     discoverIlicycles: "Découvrir Ilicycles",
+    features: "Les caractéristiques",
   },
 }

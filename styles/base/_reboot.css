@@ -57,6 +57,7 @@ body {
 body {
   @apply .text-grey-200;
   @apply .tracking-042;
+  @apply .overflow-y-hidden;
   @media (--screen-md) {
     @apply .tracking-039;
   }
@@ -95,7 +96,7 @@ a:any-link:not(.tw-button) {
     @apply .block;
     @apply .w-full;
     @apply .h-1;
-    @apply .bg-blue-100;
+    @apply .bg-transparent;
     @apply .bottom-0;
     @apply .left-0;
     content: " ";
@@ -107,6 +108,14 @@ a:any-link:not(.tw-button) {
     transform: translateX(-100%);
   }
 }
+
+a:any-link:not(.tw-button):hover::after,
+a:any-link:not(.tw-button):focus::after {
+    @media (--screen-md) {
+      @apply .bg-blue-100;
+    }
+}
+
 
 /* Titles */
 

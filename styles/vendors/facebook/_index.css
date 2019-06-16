@@ -1,0 +1,13 @@
+/*! /* purgecss start ignore */
+.fb_iframe_widget {
+  display: flex !important;
+  @media (--screen-md) {
+    display: inline-block !important;
+  }
+}
+.fb_iframe_widget iframe,
+.fb_iframe_widget span {
+  @apply .max-w-full;
+}
+
+/*! /* purgecss end ignore */

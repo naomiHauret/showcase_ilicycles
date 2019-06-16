@@ -1,0 +1,35 @@
+/*! /* purgecss start ignore */
+  .transportCapacity {
+    --height: 435px;
+    min-height: var(--height);
+
+  }
+  .slider {
+    @media (--screen-md) {
+      width: 51.171875%;
+      @apply .h-full;
+    }
+  }
+
+  .slider > div {
+    height: var(--height) !important;
+  }
+
+  .slider img {
+    height: var(--height) !important;
+    object-fit: cover !important;
+  }
+
+  .contentWrapper {
+    @media (--screen-md) {
+
+    }
+  }
+
+  .content {
+    @media (--screen-md) {
+      grid-column-start: 8;
+      grid-column-end: 13;
+    }
+  }
+/*! /* purgecss end ignore */

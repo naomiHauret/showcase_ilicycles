@@ -42,7 +42,7 @@ module.exports = {
       sm: pxTo(ds.get("breakpoints.sm"), baseFontSize, "rem"),
       md: pxTo(ds.get("breakpoints.md"), baseFontSize, "rem"),
       lg: pxTo(ds.get("breakpoints.lg"), baseFontSize, "rem"),
-      xl: pxTo(ds.get("breakpoints.lg"), baseFontSize, "rem"),
+      xl: pxTo(ds.get("breakpoints.xl"), baseFontSize, "rem"),
     },
 
     /*

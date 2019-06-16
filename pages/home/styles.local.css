@@ -1,31 +1,4 @@
 /*! /* purgecss start ignore */
-/* Daily travel */
-.featuresGrid {
-  --colNumber: 1;
-  --baseWidth: 1fr;
-  grid-template-columns: repeat(var(--colNumber), var(--baseWidth));
-
-  @media(--screen-sm) {
-    --colNumber: 2;
-    --baseWidth: 50%;
-  }
-  @media(--screen-md) {
-    --colNumber: 3;
-    --baseWidth: 1fr;
-  }
-}
-
-.featureIllustration svg {
-  --height: 165px;
-  max-height: var(--height);
-  @apply .max-w-300;
-  @apply .mx-auto;
-  @media(--screen-sm) {
-    @apply .max-w-full;
-    @apply .max-h-unset;
-    height: var(--height);
-  }
-}
 
 /* French touch */
 .gridFrenchTouchCol1 {

@@ -1,0 +1,24 @@
+/*! /* purgecss start ignore */
+
+.gridCol1 {
+  @media (--screen-sm) {
+    grid-column-start: 1;
+    grid-column-end: 6;
+  }
+}
+
+.gridCol2 {
+  @media (--screen-sm) {
+    --columnStart: 7;
+    --columnEnd: 13;
+    grid-column-start: var(--columnStart);
+    grid-column-end: var(--columnEnd);
+  }
+
+  @media (--screen-md) {
+    --columnStart: 8;
+    columnEnd: 12;
+  }
+}
+
+/*! /* purgecss end ignore */
