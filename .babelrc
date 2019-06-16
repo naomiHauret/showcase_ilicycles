@@ -1,0 +1,28 @@
+{
+  "presets": [
+    "next/babel"
+  ],
+  "plugins": [
+    [
+      "emotion"
+    ],
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./"
+        ],
+        "alias": {
+          "components": "./components",
+          "pages": "./pages",
+          "utils": "./utils",
+          "services": "./services",
+          "styles": "./styles",
+          "translations": "./translations",
+          "store": "./store",
+          "static": "./static"
+        }
+      }
+    ]
+  ]
+}

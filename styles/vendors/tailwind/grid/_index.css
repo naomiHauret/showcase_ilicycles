@@ -1,0 +1,17 @@
+@responsive {
+  .grid {
+    display: grid;
+  }
+}
+
+@responsive {
+  .grid-col-12 {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+@responsive {
+  .gap-30 {
+    grid-gap: 30px;
+  }
+}

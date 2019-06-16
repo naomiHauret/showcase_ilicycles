@@ -1,0 +1,9 @@
+/*
+  Custom utility classes
+*/
+@import "./*.css";
+
+/*
+  Tailwind classes
+*/
+@tailwind utilities;

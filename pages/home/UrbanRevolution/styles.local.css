@@ -1,0 +1,17 @@
+/*! /* purgecss start ignore */
+.urbanRevolutionCol1 {
+  @media (--screen-sm) {
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
+}
+
+.urbanRevolutionCol2 {
+  @media (--screen-sm) {
+    --columnStart: 5;
+    --columnEnd: 13;
+    grid-column-start: var(--columnStart);
+    grid-column-end: var(--columnEnd);
+  }
+}
+/*! /* purgecss end ignore */

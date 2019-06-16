@@ -1,0 +1,8 @@
+/*! /* purgecss start ignore */
+/* Decoration */
+.decoration {
+  @media (--screen-sm) {
+    height: 440px;
+  }
+}
+/*! /* purgecss end ignore */

@@ -1,0 +1,44 @@
+/*
+  Woff 2 only (for better performance)
+*/
+@font-face {
+  font-display: swap;
+  font-family: "Proxima Nova";
+  font-weight: 400;
+  src: url("/static/fonts/ProximaNova-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Proxima Nova";
+  font-weight: 500;
+  src: url("/static/fonts/ProximaNova-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Proxima Nova";
+  font-weight: 600;
+  src: url("/static/fonts/ProximaNova-Semibold.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Proxima Nova";
+  font-weight: 700;
+  src: url("/static/fonts/ProximaNova-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Roboto";
+  font-weight: 400;
+  src: url("/static/fonts/Roboto-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Roboto";
+  font-weight: 500;
+  src: url("/static/fonts/Roboto-Bold.woff2") format("woff2");
+}

@@ -1,0 +1,141 @@
+/*
+  Normalize
+*/
+@import-normalize;
+
+/*
+  Custom selectors
+*/
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+@custom-selector :--link a, a:visited, a:active, a:link;
+@custom-selector :--select-input select, option;
+@custom-selector :--inputs input, select, textarea;
+
+/*
+  Base styles
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  @apply .text-px;
+  @media (--screen-md) {
+    @apply .text-12-px;
+  }
+  scroll-behavior: smooth-scroll;
+}
+
+body {
+  @apply .flex;
+  @apply .flex-col;
+  @apply .min-h-screen;
+  @apply .m-0;
+  @apply .leading-21;
+  font-size: 1rem;
+  @media (--screen-md) {
+    @apply .leading-20;
+  }
+}
+
+#__next {
+  @apply .flex;
+  @apply .flex-col;
+  @apply .flex-grow;
+}
+
+/* Reset */
+
+html,
+body {
+  @apply .overflow-x-hidden;
+  @apply .font-text;
+}
+
+body {
+  @apply .text-grey-200;
+  @apply .tracking-042;
+  @media (--screen-md) {
+    @apply .tracking-039;
+  }
+}
+
+:--heading,
+button {
+  @apply .font-emphasis;
+}
+
+:--heading,
+figure,
+figcaption,
+p {
+  @apply .p-0;
+  @apply .m-0;
+}
+
+:--link,
+button {
+  @apply .cursor-pointer;
+}
+
+.tw-button {
+  @apply .no-underline;
+}
+
+a:any-link:not(.tw-button) {
+  @apply .text-blue-100;
+  @apply .relative;
+  @apply .overflow-hidden;
+  @apply .no-underline;
+  @apply .inline-flex;
+  &::after {
+    @apply .absolute;
+    @apply .block;
+    @apply .w-full;
+    @apply .h-1;
+    @apply .bg-blue-100;
+    @apply .bottom-0;
+    @apply .left-0;
+    content: " ";
+    transform: translateX(0);
+    transition: transform 250ms ease-in-out;
+  }
+  &:hover::after,
+  &:focus::after {
+    transform: translateX(-100%);
+  }
+}
+
+/* Titles */
+
+h1 {
+  @apply .text-25;
+  @apply .tracking-052;
+  @apply .leading-30;
+}
+
+h2 {
+  @apply .text-15;
+  @apply .tracking-039;
+  @media (--screen-md) {
+    @apply .text-20;
+    @apply .tracking-052;
+    @apply .leading-24;
+  }
+}
+
+h3 {
+  @apply .text-base;
+  @apply .tracking-034;
+  @media (--screen-md) {
+    @apply .text-15;
+    @apply .tracking-039;
+    @apply .leading-18;
+  }
+}
+
+h1, h2, h3 {
+  @apply .font-600;
+}
