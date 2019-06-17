@@ -8,10 +8,11 @@ import Container from "components/Container"
 import Translate from "components/Translate"
 import { ds } from "styles/tokens"
 import {Carousel} from 'react-responsive-carousel'
+import ReactSVG from 'react-svg'
 
 const TransportCapacity = memo(
   (props) => {
-    const { title, text, slider, locale } = props
+    const { title, text, slider, locale, features } = props
     const [innerWidth, setWindowWidth] = useState(0)
 
     useEffect(() => {
@@ -24,37 +25,87 @@ const TransportCapacity = memo(
       triggerOnce: true,
     })
 
-    return <section className={`relative mt-40 ${styles.transportCapacity}`}>
-      <div className={`${styles.slider} shadow-md md:absolute md:top-0 md:left-0 md:h-full`}>
+    return <section ref={ref} className={`relative mt-80 ${styles.transportCapacity} flex flex-col-reverse md:block`}>
+      <animated.div
+        style={
+          useSpring({
+            to: { opacity: inView ? 1 : 0, transform: inView ? 'translateY(0)' : 'translateY(15px)' }, from: { opacity: 0, transform: 'translateY(15px)' },
+            delay: 150,
+          })
+        }
+      className={`${styles.slider} my-40 md:my-0 md:absolute md:top-0 md:left-0 md:h-full`}>
         <Carousel
           infiniteLoop useKeyboardArrows swipeable showThumbs={false}>
-          {slider.map((element, key) => <div key={key}>
+          {slider.map((element, key) => <div className="shadow-md" key={key}>
               <img  src={element.photo.url} />
             </div>
 
           )}
         </Carousel>
-      </div>
+      </animated.div>
       <Container contained={true} staticStyles={`md:grid md:gap-30 md:grid-col-12 ${styles.contentWrapper}`}>
         <div className={`${styles.content} md:text-right`}>
-          <h2 className='text-blue-100 mb-30'>{title}</h2>
-          <div>
+          <animated.h2
+            style = {
+              useSpring({
+                to: {
+                  opacity: inView ? 1 : 0,
+                  transform: inView ? 'translateY(0)' : 'translateY(10px)'
+                },
+                from: {
+                  opacity: 0,
+                  transform: 'translateY(10px)'
+                },
+                delay: 250,
+              })
+            }
+          className='text-blue-100 mb-30'>{title}</animated.h2>
+          <animated.div style={
+          useSpring({
+            to: { opacity: inView ? 1 : 0, transform: inView ? 'translateY(0)' : 'translateY(10px)' }, from: { opacity: 0, transform: 'translateY(10px)' },
+            delay: 350,
+          })
+        }>
             {text}
-          </div>
-        </div>
-        <div className="mt-55">
-          <Link
-            prefetch
-            passHref
-            as={`/${locale}/product`}
-            href={`/product?lang=${locale}`}
-          >
-            <a className="tw-button">
-              <Button tagType="div" additionalStyles="mt-30 sm:mt-35" theme="primary" variant="default">
-                <Translate id="home.features" />
-              </Button>
-            </a>
-          </Link>
+
+            <ul className={`${styles.featuresGrid} grid m-0 mt-50 md:mt-40 p-0 list-none md:text-15 text-black-100 font-emphasis tracking-045 md:tracking-052`}>
+              {features.map((feature, key) => <li className="items-center m-0 p-0 flex" key={key}>
+                <ReactSVG
+                  src={feature.icon.url}
+                />
+                <span className="block ml-10 md:ml-15 text-left">
+                  {feature.label}
+                </span>
+              </li>)}
+            </ul>
+          </animated.div>
+          <animated.div style={
+            useSpring({
+              to: {
+                opacity: inView ? 1 : 0,
+                transform: inView ? 'translateY(0)' : 'translateY(10px)'
+              },
+              from: {
+                opacity: 0,
+                transform: 'translateY(10px)'
+              },
+              delay: 450,
+            })
+          }
+          className="hidden md:mt-55 md:block">
+            <Link
+              prefetch
+              passHref
+              as={`/${locale}/product`}
+              href={`/product?lang=${locale}`}
+            >
+              <a className="tw-button">
+                <Button tagType="div" additionalStyles="mt-30 sm:mt-35" theme="primary" variant="default">
+                  <Translate id="home.features" />
+                </Button>
+              </a>
+            </Link>
+          </animated.div>
         </div>
       </Container>
     </section>

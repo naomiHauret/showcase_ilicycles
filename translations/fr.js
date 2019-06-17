@@ -7,4 +7,19 @@ export default {
     discoverIlicycles: "Découvrir Ilicycles",
     features: "Les caractéristiques",
   },
+
+  layout: {
+    menu: {
+      home: 'Accueil',
+      product: 'Le produit',
+      brand: 'La marque',
+      contact: 'Contact',
+      legalNotice: 'Mentions légales',
+    },
+    footer: {
+      sitemap: 'Plan du site',
+      openingTimesAndContact: 'Horaires et contact',
+      ourMission: 'Notre mission'
+    }
+  }
 }

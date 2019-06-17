@@ -38,7 +38,8 @@ module.exports = {
 */
 
     screens: {
-      xs: 0,
+      xxs: 0,
+      xs: pxTo(ds.get("breakpoints.xs"), baseFontSize, "rem"),
       sm: pxTo(ds.get("breakpoints.sm"), baseFontSize, "rem"),
       md: pxTo(ds.get("breakpoints.md"), baseFontSize, "rem"),
       lg: pxTo(ds.get("breakpoints.lg"), baseFontSize, "rem"),

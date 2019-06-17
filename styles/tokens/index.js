@@ -24,6 +24,7 @@ const myDesignSystem = {
     },
   },
   breakpoints: {
+    xxs: 360,
     xs: 480,
     sm: 720,
     md: 991,
@@ -37,6 +38,7 @@ const myDesignSystem = {
       400: 400,
       500: 500,
       600: 600,
+      bold: 'bold',
     },
     lineHeights: {
       '18': pxTo(18, pxFontSize.base, 'rem'),

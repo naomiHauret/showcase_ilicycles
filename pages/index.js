@@ -28,9 +28,9 @@ const baseFontSize = ds.get("type.sizes.baseFontSize")
 class Home extends PureComponent {
   static async getInitialProps({ req }) {
     try {
-      const home = await Client(req).getSingle("accueil")
-
-      return { home }
+      const home = await Client(req).query(Prismic.Predicates.at("document.type", "accueil"), { lang : '*'  })
+      const layout = await Client(req).query(Prismic.Predicates.at("document.type", "modele_de_page"), { lang : '*'  })
+      return { home, layout }
     } catch (error) {
       console.log(error)
       return { error: true }
@@ -38,20 +38,24 @@ class Home extends PureComponent {
   }
 
   render() {
-    const { error, router, home, translation } = this.props
+    const { error, router, home, layout, translation } = this.props
     const locale = router.query.lang ? router.query.lang : DEFAULT_LANG
+    console.log(router)
     const seo = {}
     let content
+    let layoutContent
 
     if (home) {
-      content = home.data
-      console.log(content)
+      content = home.results.filter(result => result.lang.slice(0, 2) === locale).map(r => r.data)[0]
       Object.keys(content).filter((key) => {
         if ( key.includes("meta")) seo[key] = content[key]
       })
     }
+    if (layout) {
+      layoutContent = layout.results.filter(result => result.lang.slice(0, 2) === locale).map(r => r.data)[0]
+    }
     return (
-      <Layout locale={locale} seo={seo}>
+      <Layout theme="light" locale={locale} content={layoutContent} seo={seo}>
         {this.props.error ? (
           <Fragment />
         ) : (
@@ -76,7 +80,7 @@ class Home extends PureComponent {
               {/******************** ************************  ********************/}
 
               {/********************** TRANSPORT CAPACITY *************************/}
-              <TransportCapacity locale={locale} text={RichText.render(content.transportcapacity_text)} slider={content.slider} title={content.transportcapacity_title}/>
+              <TransportCapacity locale={locale} features={content.features_grid} text={RichText.render(content.transportcapacity_text)} slider={content.slider} title={content.transportcapacity_title}/>
               {/******************** ************************  ********************/}
 
               {/********************** FRENCH TOUCH *******************************/}
@@ -93,7 +97,7 @@ class Home extends PureComponent {
               {/********************** COVER **************************************/}
               <Cover margins="sm:mt-80" cover={content.cover} />
               {/************************* SOCIAL etc **********************************/}
-              <Container contained={true} staticStyles="mt-40 sm:mt-80 flex flex-col sm:grid sm:gap-30 sm:grid-col-12">
+              <Container contained={true} staticStyles="mb-70 md:mb-110 mt-40 sm:mt-80 flex flex-col sm:grid sm:gap-30 sm:grid-col-12">
                 <div className={`${styles.gridSocialsCol1}`}>
                     {/********************** FIND US ON SOCIAL MEDIA **************************************/}
                   <FindUs title={content.findusonsocialmedia_title}

@@ -1,18 +1,20 @@
 /*! /* purgecss start ignore */
   .transportCapacity {
-    --height: 435px;
+    --height: 250px;
     min-height: var(--height);
-
+    @media (--screen-sm) {
+      --height: 435px;
+    }
   }
   .slider {
     @media (--screen-md) {
       width: 51.171875%;
-      @apply .h-full;
     }
   }
 
   .slider > div {
     height: var(--height) !important;
+    @apply .shadow-md;
   }
 
   .slider img {
@@ -20,16 +22,20 @@
     object-fit: cover !important;
   }
 
-  .contentWrapper {
-    @media (--screen-md) {
-
-    }
-  }
-
   .content {
     @media (--screen-md) {
       grid-column-start: 8;
       grid-column-end: 13;
+    }
+  }
+
+  /* Features grid */
+  .featuresGrid {
+    --gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: var(--gap);
+    @media (--screeen-md) {
+      --gap: 60px;
     }
   }
 /*! /* purgecss end ignore */

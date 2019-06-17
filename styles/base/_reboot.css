@@ -22,9 +22,6 @@
 
 html {
   @apply .text-px;
-  @media (--screen-md) {
-    @apply .text-12-px;
-  }
   scroll-behavior: smooth-scroll;
 }
 
@@ -35,7 +32,8 @@ body {
   @apply .m-0;
   @apply .leading-21;
   font-size: 1rem;
-  @media (--screen-md) {
+  @media (min-width: 991px) {
+    @apply .text-12;
     @apply .leading-20;
   }
 }
@@ -85,7 +83,7 @@ button {
   @apply .no-underline;
 }
 
-a:any-link:not(.tw-button) {
+a:any-link:not(.tw-button, .tw-unstyled-link) {
   @apply .text-blue-100;
   @apply .relative;
   @apply .overflow-hidden;
@@ -109,9 +107,9 @@ a:any-link:not(.tw-button) {
   }
 }
 
-a:any-link:not(.tw-button):hover::after,
-a:any-link:not(.tw-button):focus::after {
-    @media (--screen-md) {
+a:any-link:not(.tw-button, .tw-unstyled-link):hover::after,
+a:any-link:not(.tw-button, .tw-unstyled-link):focus::after {
+  @media (min-width: 991px) {
       @apply .bg-blue-100;
     }
 }
@@ -128,7 +126,7 @@ h1 {
 h2 {
   @apply .text-15;
   @apply .tracking-039;
-  @media (--screen-md) {
+  @media (min-width: 991px) {
     @apply .text-20;
     @apply .tracking-052;
     @apply .leading-24;
@@ -138,7 +136,7 @@ h2 {
 h3 {
   @apply .text-base;
   @apply .tracking-034;
-  @media (--screen-md) {
+  @media (min-width: 991px) {
     @apply .text-15;
     @apply .tracking-039;
     @apply .leading-18;

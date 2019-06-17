@@ -7,4 +7,18 @@ export default {
     discoverIlicycles: "Discover Ilicycles",
     features: "Features",
   },
+  layout: {
+    menu: {
+      home: 'Home',
+      product: 'Product',
+      brand: 'Brand',
+      contact: 'Contact',
+      legalNotice: 'Legal notice',
+    },
+    footer: {
+      sitemap: 'Sitemap',
+      openingTimesAndContact: 'Opening times and contact',
+      ourMission: 'Our mission'
+    }
+  }
 }
