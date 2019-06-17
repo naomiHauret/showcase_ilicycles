@@ -36,16 +36,16 @@ const Layout = memo((props) => {
           style={
           useSpring({
             to: {
-              background: scrollY < 350 ? 'rgba(255, 255, 255, 0)' : 'rgba(255, 255, 255, 1)',
+              background: scrollY < 150 ? 'rgba(255, 255, 255, 0)' : 'rgba(255, 255, 255, 1)',
             },
               from: {
-                background: 'rgba(255, 255, 255, 1)'
+                background: scrollY < 150 ? 'rgba(255, 255, 255, 0)' : 'rgba(255, 255, 255, 1)',
               },
           })
         }
         className={`fixed w-full top-0 left-0 z-10 pt-15 pb-20 shadow-lg ${styles.header}
-        ${scrollY < 350 ? 'md:py-50 md:shadow-none' : 'md:py-5 md:shadow-lg'}
-        ${scrollY < 350 ? themeSystem.color[theme] : 'text-black-100'}`}>
+        ${scrollY < 150 ? 'md:py-50 md:shadow-none' : 'md:py-5 md:shadow-lg'}
+        ${scrollY < 150 ? themeSystem.color[theme] : 'text-black-100'}`}>
           <nav>
             <Container contained={true} staticStyles="flex items-center">
             <ul className={`list-none items-center p-0 flex text-base tracking-052 ${styles.headerNav}`}>
@@ -102,7 +102,7 @@ const Layout = memo((props) => {
                   </li>
                 </ul>
                 <div className="ml-auto">
-                 <SelectLanguage router={router} onChange={setLocale}  />
+                 <SelectLanguage theme={theme} router={router} onChange={setLocale}  />
                 </div>
                 </Container>
           </nav>

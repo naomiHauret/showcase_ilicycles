@@ -8,11 +8,11 @@ const ContactUs = memo(
     const { title, text, titleMargins } = props
     const [innerWidth, setWindowWidth] = useState(0)
     useEffect(() => {
-      // Update the document title using the browser API
+
       setWindowWidth(window.innerWidth)
     })
     const [ref, inView] = useInView({
-      /* Optional options */
+
       threshold: innerWidth > ds.get("grid.width.md") ? 0.25 : 0,
       triggerOnce: true,
     })

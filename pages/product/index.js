@@ -12,8 +12,9 @@ import { ds } from "styles/tokens"
 import { pxTo } from 'design-system-utils'
 import MediaQuery from 'react-responsive'
 import styles from './styles.local.css'
+import Quality from './Quality'
+import Features from './Features'
 const baseFontSize = ds.get("type.sizes.baseFontSize")
-
 class Product extends PureComponent {
   static async getInitialProps({ req }) {
     try {
@@ -43,14 +44,15 @@ class Product extends PureComponent {
       layoutContent = layout.results.filter(result => result.lang.slice(0, 2) === locale).map(r => r.data)[0]
     }
     return (
-      <Layout theme="light" locale={locale} content={layoutContent} seo={seo}>
+      <Layout theme="colorful" locale={locale} content={layoutContent} seo={seo}>
         {this.props.error ? (
           <Fragment />
         ) : (
             <Fragment>
-              <Container contained={true}>
-                  Hello from product page
-              </Container>
+              <div className="md:mt-170">
+                <Quality title={content.quality_title} subtitle={content.quality_subtitle} text={RichText.render(content.quality_text)} price={content.quality_price} slider={content.slider}/>
+                <Features locale={locale} list={content.features }/>
+              </div>
             </Fragment>
           )}
       </Layout>

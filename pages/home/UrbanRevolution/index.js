@@ -16,12 +16,12 @@ const UrbanRevolution = memo(
       const {title, text, locale} = props
       const [innerWidth, setWindowWidth] = useState(0)
       useEffect(() => {
-        // Update the document title using the browser API
+
         setWindowWidth(window.innerWidth)
       })
       const baseFontSize = ds.get("type.sizes.baseFontSize")
       const [ref, inView] = useInView({
-        /* Optional options */
+
         threshold: innerWidth > ds.get("grid.width.md") ? 0.35 : 0,
         triggerOnce: true,
       })

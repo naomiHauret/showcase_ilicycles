@@ -10,11 +10,11 @@ const Decoration = memo(
       const [innerWidth, setWindowWidth] = useState(0)
 
       useEffect(() => {
-        // Update the document title using the browser API
+
         setWindowWidth(window.innerWidth)
       })
       const [ref, inView] = useInView({
-        /* Optional options */
+
         threshold: innerWidth > ds.get("grid.width.md") ? 0.5 : 0,
         triggerOnce: true,
       })

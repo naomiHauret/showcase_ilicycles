@@ -1,0 +1,17 @@
+/*! /* purgecss start ignore */
+.gridCol1 {
+  @media (--screen-md) {
+    grid-column-start: 1;
+    grid-column-end: 6;
+  }
+}
+
+.gridCol2 {
+  @media (--screen-md) {
+    height: 335px;
+    grid-column-start: 7;
+    grid-column-end: 13;
+  }
+}
+
+/*! /* purgecss end ignore */

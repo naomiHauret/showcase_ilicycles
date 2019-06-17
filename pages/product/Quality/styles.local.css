@@ -1,0 +1,31 @@
+/*! /* purgecss start ignore */
+.gridCol1 {
+  @media (--screen-md) {
+    grid-column-start: 1;
+    grid-column-end: 8;
+  }
+}
+.gridCol2 {
+  @media (--screen-md) {
+    grid-column-start: 9;
+    grid-column-end: 13;
+  }
+}
+
+.slider {
+  --height: 250px;
+  @media(--screen-sm) {
+    --height: 470px;
+  }
+}
+
+.slider > div {
+  height: var(--height) !important;
+  @apply .shadow-md;
+}
+
+.slider img {
+  height: var(--height) !important;
+  object-fit: cover !important;
+}
+/*! /* purgecss end ignore */

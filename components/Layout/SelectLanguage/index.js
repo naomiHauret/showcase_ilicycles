@@ -57,11 +57,17 @@ class SelectLanguage extends PureComponent {
 
   render() {
     const { selectedOption } = this.state
-    const { router } = this.props
+    const { router, theme } = this.props
     const locale = router.query.lang ? router.query.lang : DEFAULT_LANG
     const newLocale = locale === "en" ? "fr" : "en"
     let href
     let as
+    const themeSystem = {
+      color: {
+        light: '#FFFFFF',
+        colorful: '#15ACDF',
+      }
+    }
     switch (router.route) {
       case "/index":
         href = `/?lang=${newLocale}`
@@ -98,6 +104,7 @@ class SelectLanguage extends PureComponent {
         border: 0,
         outline: 0,
         boxShadow: "none",
+        backgroundColor: 'transparent',
       }),
       indicatorSeparator: (base, state) => ({
         background: "transparent",
@@ -105,7 +112,8 @@ class SelectLanguage extends PureComponent {
       dropdownIndicator: (base, state) => ({
         ...base,
         padding: 0,
-        opacity: state.isFocused === true ? 0 : 1,
+        opacity: 1,
+        color: themeSystem.color[theme]
       }),
       valueContainer: (base, state) => ({
         ...base,
@@ -115,13 +123,13 @@ class SelectLanguage extends PureComponent {
         position: "relative",
         transform: "unset",
         fontSize: "12px",
-        color: ds.get("colors['grey-300']"),
+        color: themeSystem.color[theme]
       }),
       option: (base, state) => ({
         ...base,
         border: 0,
         outline: 0,
-        backgroundColor: "white",
+        backgroundColor: '#FFFFFF',
         fontSize: "12px",
         color: ds.get("colors['grey-300']"),
         fontWeight: state.isSelected ? "bold" : "100",
@@ -132,6 +140,7 @@ class SelectLanguage extends PureComponent {
         zIndex: 5,
         position: "absolute",
         top: 0,
+        backgroundColor: 'white'
       }),
     }
     const goToWebsiteLabel = `goToWebsite.${newLocale}`

@@ -7,6 +7,9 @@ export default {
     discoverIlicycles: "Discover Ilicycles",
     features: "Features",
   },
+  product: {
+    ourBrand: 'Our brand',
+  },
   layout: {
     menu: {
       home: 'Home',

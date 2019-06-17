@@ -1,0 +1,57 @@
+/*! /* purgecss start ignore */
+.contentWrapper:not(:last-child) {
+  @apply .mb-40;
+  @media(--screen-md) {
+    @apply .mb-100;
+  }
+}
+.contentWrapper:last-child {
+  @apply .mb-90;
+}
+.featuresWrapper .contentWrapper:nth-child(odd) .content {
+  @media(--screen-md) {
+    @apply .text-right;
+    @apply .flex-row;
+    grid-column-start: 2;
+    grid-column-end: 13;
+  }
+}
+.featuresWrapper .contentWrapper:nth-child(even) .content {
+  @media(--screen-md) {
+    @apply .text-left;
+    @apply .flex-row-reverse;
+    grid-column-start: 1;
+    grid-column-end: 12;
+  }
+}
+.featuresWrapper .contentWrapper:nth-child(odd) .metadata {
+  @media(--screen-md) {
+    @apply .pr-60;
+  }
+}
+.featuresWrapper .contentWrapper:nth-child(even) .metadata {
+  @media(--screen-md) {
+    @apply .pl-60;
+  }
+}
+
+.featureImage {
+  --height: 205px;
+  height: var(--height);
+  @media (--screen-md) {
+    --height: 300px;
+    width: 50%;
+  }
+}
+
+.content {
+  @apply .text-center;
+}
+
+
+.featureIcon {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/*! /* purgecss end ignore */

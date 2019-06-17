@@ -1,0 +1,23 @@
+/*! /* purgecss start ignore */
+.cover {
+  --height: 200px;
+  height: var(--height);
+  @apply .relative;
+
+  &::before {
+    content: " ";
+    @apply .absolute;
+    @apply .left-0;
+    @apply .top-0;
+    @apply .w-full;
+    @apply .h-full;
+    @apply .z-1;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  @media(--screen-md) {
+    --height: 290px;
+  }
+}
+
+/*! /* purgecss end ignore */

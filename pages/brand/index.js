@@ -4,15 +4,10 @@ import Link from "next/link"
 import { Client, Prismic, linkResolver } from "utils/prismic"
 import Layout from "components/Layout"
 import { RichText } from "prismic-reactjs"
-import Translate from "components/Translate"
 import { AVAILABLE_LOCALES, DEFAULT_LANG } from 'utils/config'
-import ReactSVG from 'react-svg'
 import Container from "components/Container"
-import { ds } from "styles/tokens"
-import { pxTo } from 'design-system-utils'
-import MediaQuery from 'react-responsive'
-import styles from './styles.local.css'
-const baseFontSize = ds.get("type.sizes.baseFontSize")
+import Cover from './Cover'
+import Content from './Content'
 
 class Brand extends PureComponent {
   static async getInitialProps({ req }) {
@@ -48,28 +43,9 @@ class Brand extends PureComponent {
           <Fragment />
         ) : (
           <Fragment>
-              <div className={`${styles.cover} flex relative items-center justify-center`}>
-                  <picture className="w-full h-full block absolute left-0 top-0">
-                       <source
-                        srcSet={content.cover_pic.mobile.url}  media={`(min-width: 0px)`} />
-                      <source
-                        srcSet={content.cover_pic['mobile@2x'].url}  media={`(min-width: 0) and (-webkit-min-device-pixel-ratio: 1.25) and ( min--moz-device-pixel-ratio: 1.25) and ( -o-min-device-pixel-ratio: 1.25/1) and ( min-device-pixel-ratio: 1.25) and ( min-resolution: 200dpi) and ( min-resolution: 1.25dppx))`} />
-
-                      <source
-                        srcSet={content.cover_pic.url.url}  media={`(min-width: ${pxTo(ds.get("grid.width.md"), baseFontSize, "rem")})`} />
-
-                      <source
-                        srcSet={content.cover_pic['@2x'].url}  media={`(min-width: ${pxTo(ds.get("grid.width.md"), baseFontSize, "rem")}) (-webkit-min-device-pixel-ratio: 1.25) and ( min--moz-device-pixel-ratio: 1.25) and ( -o-min-device-pixel-ratio: 1.25/1) and ( min-device-pixel-ratio: 1.25) and ( min-resolution: 200dpi) and ( min-resolution: 1.25dppx)`} />
-
-                      <img src={content.cover_pic.preview.url} className="w-full h-full object-cover" />
-                  </picture>
-                  <h1 className="z-1 relative text-white-100">{content.cover_title}</h1>
-              </div>
-              <Container contained={true}>
-                <h2 className="text-blue-100 md:mb-20 md:mt-80">{content.ourhistory_title}</h2>
-                <div>
-                  {RichText.render(content.ourhistory_text)}
-                </div>
+              <Cover image={content.cover_pic} title={content.cover_title} />
+              <Container contained={true} staticStyles="mb-40 md:mb-75">
+                <Content picture={content.picture} title={content.ourhistory_title} text={RichText.render(content.ourhistory_text)} />
               </Container>
           </Fragment>
         )}
