@@ -1,0 +1,9 @@
+/*! /* purgecss start ignore */
+.cover {
+  --height: 200px;
+  height: var(--height);
+  @media(--screen-md) {
+    --height: 290px;
+  }
+}
+/*! /* purgecss end ignore */

@@ -40,7 +40,6 @@ class Home extends PureComponent {
   render() {
     const { error, router, home, layout, translation } = this.props
     const locale = router.query.lang ? router.query.lang : DEFAULT_LANG
-    console.log(router)
     const seo = {}
     let content
     let layoutContent

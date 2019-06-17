@@ -1,21 +1,26 @@
 {
   "version": 2,
   "env": {
-    "PRISMIC_URL": "",
+    "PRISMIC_URL": "https://ilicycleswebsite.cdn.prismic.io/api/v2",
     "MAIL_TOKEN": "",
     "MAIL_TO": ""
   },
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@now/next"
-    }
-  ],
-  "routes": [
-    {
+  "builds": [{
+    "src": "package.json",
+    "use": "@now/next"
+  }],
+  "routes": [{
       "src": "/_next/static/(?:[^/]+/pages|chunks|runtime)/.+",
       "headers": {
         "cache-control": "immutable"
+      }
+    },
+    {
+      "src": "/",
+      "dest": "/?lang=fr",
+      "headers": {
+        "Cache-control": "max-age=31557600",
+        "Accept-Encoding": "br"
       }
     },
     {
@@ -23,7 +28,7 @@
       "status": 301,
       "headers": {
         "Location": "/?lang=$lang",
-        "Cache-control": "s-maxage=1, stale-while-revalidate",
+        "Cache-control": "max-age=31557600",
         "Accept-Encoding": "br"
       }
     },
@@ -32,7 +37,7 @@
       "status": 301,
       "headers": {
         "Location": "/brand?lang=$lang",
-        "Cache-control": "s-maxage=1, stale-while-revalidate",
+        "Cache-control": "max-age=31557600",
         "Accept-Encoding": "br"
       }
     },
@@ -41,7 +46,16 @@
       "status": 301,
       "headers": {
         "Location": "/product?lang=$lang",
-        "Cache-control": "s-maxage=1, stale-while-revalidate",
+        "Cache-control": "max-age=31557600",
+        "Accept-Encoding": "br"
+      }
+    },
+    {
+      "src": "/(?<lang>[a-z]{2})/legal",
+      "status": 301,
+      "headers": {
+        "Location": "/legal?lang=$lang",
+        "Cache-control": "max-age=31557600",
         "Accept-Encoding": "br"
       }
     }

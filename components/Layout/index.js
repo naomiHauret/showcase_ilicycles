@@ -68,8 +68,8 @@ const Layout = memo((props) => {
                     <Link
                       prefetch
                       passHref
-                      as={`/${locale}`}
-                      href={`/?lang=${locale}`}
+                      as={`/${locale}/product`}
+                      href={`/product?lang=${locale}`}
                     >
                       <a className="tw-unstyled-link font-600">
                         <Translate id="layout.menu.product" />
@@ -80,8 +80,8 @@ const Layout = memo((props) => {
                     <Link
                       prefetch
                       passHref
-                      as={`/${locale}`}
-                      href={`/?lang=${locale}`}
+                      as={`/${locale}/brand`}
+                      href={`/brand?lang=${locale}`}
                     >
                       <a className=" tw-unstyled-link font-600">
                         <Translate id="layout.menu.brand" />
@@ -133,8 +133,8 @@ const Layout = memo((props) => {
                     <Link
                       prefetch
                       passHref
-                      as={`/${locale}`}
-                      href={`/?lang=${locale}`}
+                      as={`/${locale}/product`}
+                      href={`/product?lang=${locale}`}
                     >
                       <a className="tw-unstyled-link">
                         <Translate id="layout.menu.product" />
@@ -145,8 +145,8 @@ const Layout = memo((props) => {
                     <Link
                       prefetch
                       passHref
-                      as={`/${locale}`}
-                      href={`/?lang=${locale}`}
+                      as={`/${locale}/brand`}
+                      href={`/brand?lang=${locale}`}
                     >
                       <a className=" tw-unstyled-link">
                         <Translate id="layout.menu.brand" />
@@ -169,8 +169,8 @@ const Layout = memo((props) => {
                     <Link
                       prefetch
                       passHref
-                      as={`/${locale}`}
-                      href={`/?lang=${locale}`}
+                      as={`/${locale}/legal`}
+                      href={`/legal?lang=${locale}`}
                     >
                       <a className=" tw-unstyled-link">
                         <Translate id="layout.menu.legalNotice" />
