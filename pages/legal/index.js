@@ -14,12 +14,12 @@ import MediaQuery from 'react-responsive'
 import styles from './styles.local.css'
 const baseFontSize = ds.get("type.sizes.baseFontSize")
 
-class Product extends PureComponent {
+class Legal extends PureComponent {
   static async getInitialProps({ req }) {
     try {
-      const product = await Client(req).query(Prismic.Predicates.at("document.type", "le_produit"), { lang: '*' })
+      const legal = await Client(req).query(Prismic.Predicates.at("document.type", "mentions_legales"), { lang: '*' })
       const layout = await Client(req).query(Prismic.Predicates.at("document.type", "modele_de_page"), { lang: '*' })
-      return { product, layout }
+      return { legal, layout }
     } catch (error) {
       console.log(error)
       return { error: true }
@@ -27,14 +27,14 @@ class Product extends PureComponent {
   }
 
   render() {
-    const { error, router, product, layout, translation } = this.props
+    const { error, router, legal, layout, translation } = this.props
     const locale = router.query.lang ? router.query.lang : DEFAULT_LANG
     const seo = {}
     let content
     let layoutContent
 
-    if (product) {
-      content = product.results.filter(result => result.lang.slice(0, 2) === locale).map(r => r.data)[0]
+    if (legal) {
+      content = legal.results.filter(result => result.lang.slice(0, 2) === locale).map(r => r.data)[0]
       Object.keys(content).filter((key) => {
         if (key.includes("meta")) seo[key] = content[key]
       })
@@ -49,7 +49,7 @@ class Product extends PureComponent {
         ) : (
             <Fragment>
               <Container contained={true}>
-                  Hello from product page
+                  Hello from legal page
               </Container>
             </Fragment>
           )}
@@ -58,4 +58,4 @@ class Product extends PureComponent {
   }
 }
 
-export default withRouter(Product)
+export default withRouter(Legal)
