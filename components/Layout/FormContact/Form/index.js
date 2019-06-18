@@ -142,7 +142,7 @@ const Form = memo((props) => {
         <input type="hidden" name="*honeypot" />
         <div
           className={`${
-            submitDisabled === true ? "opacity-50" : "opacity-100"
+            submitDisabled === true ? "opacity-50 pointer-events-none" : "opacity-100"
           } flex mt-30 md:mt-20 items-center justify-center md:block ${styles.button}`}
         >
           <Button tagType="button" theme="primary" variant="inverted" type="submit" disabled={submitDisabled}>
