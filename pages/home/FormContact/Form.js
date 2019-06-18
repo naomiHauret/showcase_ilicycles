@@ -141,7 +141,7 @@ const Form = memo((props) => {
             placeholder={t("formContact.fields.message", { locale: props.locale })}
             tagType="textarea"
             minLength="5"
-            maxLength="250"
+            maxLength="5000000"
             placeholder=" "
           />
         </div>
