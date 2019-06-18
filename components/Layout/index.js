@@ -17,9 +17,6 @@ const Layout = memo((props) => {
   const { children, seo, locale, router, content, theme, withForm } = props
   const [translation, setLocale] = useState({ locale: props.locale, fallback: DEFAULT_LANG })
   const scrollY = useWindowScroll(60)
-  const activeBrandLinkRegex = new RegExp("^/brand$")
-  const activeProductLinkRegex = new RegExp("^/product$")
-  const activeContactLinkRegex = new RegExp("^/((contact)?)$")
 
   const themeSystem = {
     color: {
@@ -56,7 +53,7 @@ const Layout = memo((props) => {
             <Container contained={true} staticStyles="flex items-center">
               <ul className={`list-none items-center p-0 flex text-base tracking-052 ${styles.headerNav}`}>
                 <li>
-                  <Link prefetch passHref as={`/${locale}`} href={`/?lang=${locale}`}>
+                  <Link passHref as={`/${locale}`} href={`/?lang=${locale}`}>
                     <a className="tw-unstyled-link">
                       <span className="hidden">
                         <Translate id="layout.menu.home" />
@@ -77,8 +74,7 @@ const Layout = memo((props) => {
                 </li>
                 <li>
                   <Link
-                    active={activeProductLinkRegex.test(router.pathname)}
-                    activeClassName={`${styles.active}`}
+                    prefetch
                     as={`/${locale}/product`}
                     href={`/product?lang=${locale}`}
                     passHref
@@ -90,8 +86,7 @@ const Layout = memo((props) => {
                 </li>
                 <li>
                   <Link
-                    active={activeBrandLinkRegex.test(router.pathname)}
-                    activeClassName={`${styles.active}`}
+                    prefetch
                     as={`/${locale}/brand`}
                     href={`/brand?lang=${locale}`}
                     passHref
@@ -104,8 +99,6 @@ const Layout = memo((props) => {
                 <li>
                   <Link
                     prefetch
-                    active={activeContactLinkRegex.test(router.pathname)}
-                    activeClassName={`${styles.active}`}
                     href={`#contact`}
                     passHref
                   >
