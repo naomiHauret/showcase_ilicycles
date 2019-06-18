@@ -161,6 +161,7 @@ module.exports = {
       unset: "unset",
       auto: "auto",
       'n50': pxTo(-50, baseFontSize, "rem"),
+      'n80': pxTo(-80, baseFontSize, "rem"),
       ...spacings,
     },
     /*

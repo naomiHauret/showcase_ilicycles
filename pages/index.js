@@ -54,11 +54,9 @@ class Home extends PureComponent {
     if (layout) {
       layoutContent = layout.results.filter((result) => result.lang.slice(0, 2) === locale).map((r) => r.data)[0]
     }
+    if(this.props.error) return <Fragment />
     return (
       <Layout theme="light" locale={locale} content={layoutContent} seo={seo}>
-        {this.props.error ? (
-          <Fragment />
-        ) : (
           <Fragment>
             {/******************** SECTION URBAN REVOLUTION  ********************/}
             <div className="relative">
@@ -141,7 +139,6 @@ class Home extends PureComponent {
               </section>
             </Container>
           </Fragment>
-        )}
       </Layout>
     )
   }

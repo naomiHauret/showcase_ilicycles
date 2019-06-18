@@ -43,12 +43,9 @@ class Product extends PureComponent {
     if (layout) {
       layoutContent = layout.results.filter((result) => result.lang.slice(0, 2) === locale).map((r) => r.data)[0]
     }
+    if (this.props.error) return <Fragment />
     return (
       <Layout withForm={true} theme="colorful" locale={locale} content={layoutContent} seo={seo}>
-        {this.props.error ? (
-          <Fragment />
-        ) : (
-          <Fragment>
             <div className="mt-50 md:mt-170">
               <Quality
                 title={content.quality_title}
@@ -59,7 +56,6 @@ class Product extends PureComponent {
               />
               <Features locale={locale} list={content.features} />
             </div>
-          </Fragment>
         )}
       </Layout>
     )

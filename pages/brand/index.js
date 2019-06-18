@@ -37,12 +37,9 @@ class Brand extends PureComponent {
     if (layout) {
       layoutContent = layout.results.filter((result) => result.lang.slice(0, 2) === locale).map((r) => r.data)[0]
     }
+    if (this.props.error) return <Fragment />
     return (
       <Layout withForm={true} theme="light" locale={locale} content={layoutContent} seo={seo}>
-        {this.props.error ? (
-          <Fragment />
-        ) : (
-          <Fragment>
             <Cover image={content.cover_pic} title={content.cover_title} />
             <Container contained={true} staticStyles="mb-40 md:mb-75">
               <Content
@@ -51,8 +48,6 @@ class Brand extends PureComponent {
                 text={RichText.render(content.ourhistory_text)}
               />
             </Container>
-          </Fragment>
-        )}
       </Layout>
     )
   }

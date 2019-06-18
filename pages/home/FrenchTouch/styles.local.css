@@ -11,8 +11,10 @@
   @media (--screen-sm) {
     --columnStart: 7;
     --columnEnd: 13;
+    margin-top: -50px;
     grid-column-start: var(--columnStart);
     grid-column-end: var(--columnEnd);
+
   }
 
   @media (--screen-md) {
