@@ -27,11 +27,11 @@ import TransportCapacity from "./home/TransportCapacity"
 const baseFontSize = ds.get("type.sizes.baseFontSize")
 
 class Home extends PureComponent {
-  static async getInitialProps({ req }) {
+  static async getInitialProps({ req, query }) {
     try {
       const home = await Client(req).query(Prismic.Predicates.at("document.type", "accueil"), { lang: "*" })
       const layout = await Client(req).query(Prismic.Predicates.at("document.type", "modele_de_page"), { lang: "*" })
-      return { home, layout }
+      return { home, layout, lang: query.lang }
     } catch (error) {
       console.log(error)
       return { error: true }
@@ -39,8 +39,8 @@ class Home extends PureComponent {
   }
 
   render() {
-    const { error, router, home, layout, translation } = this.props
-    const locale = router.query.lang ? router.query.lang : DEFAULT_LANG
+    const { error, router, home, layout, translation, lang } = this.props
+    const locale = lang ? lang : DEFAULT_LANG
     const seo = {}
     let content
     let layoutContent

@@ -16,11 +16,11 @@ import Quality from "./Quality"
 import Features from "./Features"
 const baseFontSize = ds.get("type.sizes.baseFontSize")
 class Product extends PureComponent {
-  static async getInitialProps({ req }) {
+  static async getInitialProps({ req, query }) {
     try {
       const product = await Client(req).query(Prismic.Predicates.at("document.type", "le_produit"), { lang: "*" })
       const layout = await Client(req).query(Prismic.Predicates.at("document.type", "modele_de_page"), { lang: "*" })
-      return { product, layout }
+      return { product, layout, lang: query.lang }
     } catch (error) {
       console.log(error)
       return { error: true }
@@ -28,8 +28,8 @@ class Product extends PureComponent {
   }
 
   render() {
-    const { error, router, product, layout, translation } = this.props
-    const locale = router.query.lang ? router.query.lang : DEFAULT_LANG
+    const { error, router, product, layout, translation, lang } = this.props
+    const locale = lang ? lang : DEFAULT_LANG
     const seo = {}
     let content
     let layoutContent

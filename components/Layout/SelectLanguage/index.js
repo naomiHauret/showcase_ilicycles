@@ -19,7 +19,7 @@ class SelectLanguage extends PureComponent {
   }
 
   _handleChange = (selectedOption) => {
-    const { onChange, router } = this.props
+    const { onChange, router, isDark } = this.props
     const newLocale = selectedOption.value
     this.setState({ selectedOption })
     onChange({ locale: newLocale, fallback: DEFAULT_LANG })
@@ -57,7 +57,7 @@ class SelectLanguage extends PureComponent {
 
   render() {
     const { selectedOption } = this.state
-    const { router, theme } = this.props
+    const { router, theme, isDark } = this.props
     const locale = router.query.lang ? router.query.lang : DEFAULT_LANG
     const newLocale = locale === "en" ? "fr" : "en"
     const flags = {
@@ -128,7 +128,7 @@ class SelectLanguage extends PureComponent {
         ...base,
         padding: 0,
         opacity: 1,
-        color: router.route === "/" || router.route === "/index" ? "#161616" : themeSystem.color[theme],
+        color: router.route === "/" || router.route === "/index"  || isDark ? "#161616" : themeSystem.color[theme],
       }),
       valueContainer: (base, state) => ({
         ...base,
@@ -138,7 +138,7 @@ class SelectLanguage extends PureComponent {
         position: "relative",
         transform: "unset",
         fontSize: "12px",
-        color: router.route === "/" || router.route === "/index" ? "#161616" : themeSystem.color[theme],
+        color: router.route === "/" || router.route === "/index" || isDark ? "#161616" : themeSystem.color[theme],
       }),
       option: (base, state) => ({
         ...base,
