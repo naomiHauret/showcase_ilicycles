@@ -204,7 +204,7 @@ class SelectLanguage extends PureComponent {
             <select onChange={e => this._handleNativeChange(e.target.value)} className="absolute opacity-0 top-0 left-0 w-full h-full">
               {Object.values(options).map((option, key) => <option value={option.value} key={key}>{option.label}</option> )}
             </select>
-            <div className="w-20 flex">
+            <div className="w-20 h-20 flex">
               {options[locale].flag}
             </div>
           </div>
