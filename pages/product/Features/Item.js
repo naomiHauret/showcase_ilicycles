@@ -71,21 +71,17 @@ const Item = memo((props) => {
             <source srcSet={photos.mobile.url} media={`(min-width: 0px)`} />
             <source
               srcSet={photos["mobile@2x"].url}
-              media={`(min-width: 0) and (-webkit-min-device-pixel-ratio: 1.25) and ( min--moz-device-pixel-ratio: 1.25) and ( -o-min-device-pixel-ratio: 1.25/1) and ( min-device-pixel-ratio: 1.25) and ( min-resolution: 200dpi) and ( min-resolution: 1.25dppx))`}
+              media={`(min-width: 319px)`}
             />
 
             <source
-              srcSet={photos.url.url}
-              media={`(min-width: ${pxTo(ds.get("grid.width.md"), baseFontSize, "rem")})`}
+              srcSet={photos.url}
+              media={`(min-width: 750px)`}
             />
 
             <source
               srcSet={photos["@2x"].url}
-              media={`(min-width: ${pxTo(
-                ds.get("grid.width.md"),
-                baseFontSize,
-                "rem",
-              )}) (-webkit-min-device-pixel-ratio: 1.25) and ( min--moz-device-pixel-ratio: 1.25) and ( -o-min-device-pixel-ratio: 1.25/1) and ( min-device-pixel-ratio: 1.25) and ( min-resolution: 200dpi) and ( min-resolution: 1.25dppx)`}
+              media={`(min-width: 1280px`}
             />
 
             <img src={photos.preview.url} className="w-full h-full object-cover" />

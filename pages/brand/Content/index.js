@@ -50,17 +50,8 @@ const Content = memo((props) => {
           className={`${styles.gridCol2} hidden md:relative md:block`}
         >
           <picture className="w-full h-full block absolute left-0 top-0">
-            <source srcSet={picture.url} media={`(min-width: ${pxTo(ds.get("grid.width.md"), baseFontSize, "rem")})`} />
-
-            <source
-              srcSet={picture["desktop@2x"].url}
-              media={`(min-width: ${pxTo(
-                ds.get("grid.width.md"),
-                baseFontSize,
-                "rem",
-              )}) (-webkit-min-device-pixel-ratio: 1.25) and ( min--moz-device-pixel-ratio: 1.25) and ( -o-min-device-pixel-ratio: 1.25/1) and ( min-device-pixel-ratio: 1.25) and ( min-resolution: 200dpi) and ( min-resolution: 1.25dppx)`}
-            />
-
+            <source srcSet={picture.url} media={`(min-width: 319px)`} />
+            <source srcSet={picture["desktop@2x"].url} media={`(min-width: 990px)`} />
             <img src="" className="w-full h-full object-cover" />
           </picture>
         </animated.div>
