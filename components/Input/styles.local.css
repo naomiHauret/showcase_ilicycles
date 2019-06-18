@@ -1,0 +1,14 @@
+/*! /* purgecss start ignore */
+.input > span {
+  @apply .absolute;
+  @apply .top-0;
+  @apply .left-0;
+  transform: translateY(0);
+  transition: transform 250ms ease-in;
+}
+
+.input > .withValue {
+  transform: translateY(-20px);
+}
+
+/*! /* purgecss end ignore */

@@ -1,16 +1,17 @@
 import React, { memo } from "react"
+import styles from './styles.local.css'
 
 const themeSystem = {
   bg: {
     primary: {
-      default: "bg-blue-100",
-      outline: "bg-transparent",
-      inverted: 'bg-white-100',
+      default: "bg-blue-100 focus:bg-blue-200 hover:bg-blue-200",
+      outline: "bg-transparent hover:bg-blue-100  focus:bg-blue-100",
+      inverted: 'bg-white-100 hover:bg-white-200  focus:bg-white-200',
     },
     secondary: {
-      default: "bg-white-100",
-      outline: "bg-white-100",
-      inverted: 'bg-white-100',
+      default: "bg-white-100 hover:bg-white-200  focus:bg-white-200",
+      outline: "bg-white-100 hover:bg-white-200  focus:bg-white-200",
+      inverted: 'bg-white-100 hover:bg-white-200  focus:bg-white-200',
     },
   },
   border: {
@@ -28,7 +29,7 @@ const themeSystem = {
   color: {
       primary:  {
         default: "text-white-100",
-        outline: "text-blue-100",
+        outline: "text-blue-100 focus:text-white-100 hover:text-white-100",
         inverted: 'text-blue-100',
       },
       secondary:  {
@@ -66,6 +67,7 @@ const Button = memo((props) => {
       tracking-052
       uppercase
       ${additionalStyles}
+      ${styles.animation}
       ${themeSystem.bg[theme][variant]}
       ${themeSystem.border[theme][variant]}
       ${themeSystem.color[theme][variant]}

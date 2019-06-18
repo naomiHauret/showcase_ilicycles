@@ -107,6 +107,8 @@ module.exports = {
     width: {
       auto: "auto",
       screen: "100vw",
+      20: pxTo(20, baseFontSize, "rem"),
+      '6/12': '50%',
       full: "100%",
     },
     height: {

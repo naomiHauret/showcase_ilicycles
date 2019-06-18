@@ -15,6 +15,7 @@ import DailyTravel from "pages/home/DailyTravel"
 import FrenchTouch from "pages/home/FrenchTouch"
 import ContactUs from 'pages/home/ContactUs'
 import FindUs from 'pages/home/FindUs'
+import FormContact from 'pages/home/FormContact'
 import Cover from "pages/home/Cover"
 import Catalog from "./home/Catalog"
 import Button from "components/Button"
@@ -112,6 +113,7 @@ class Home extends PureComponent {
                 {/************************************** CONTACT US **************************************/}
                 <section className={`${styles.gridSocialsCol2}`}>
                   <ContactUs titleMargins='mb-20 sm:mb-30 mt-40 sm:mt-0' title={content.contactus_title} text={RichText.render(content.contactus_text)} />
+                  <FormContact theme="colorful" locale={locale} />
                 </section>
               </Container>
           </Fragment>

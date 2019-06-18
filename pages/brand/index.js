@@ -38,7 +38,7 @@ class Brand extends PureComponent {
       layoutContent = layout.results.filter(result => result.lang.slice(0, 2) === locale).map(r => r.data)[0]
     }
     return (
-      <Layout theme="light" locale={locale} content={layoutContent} seo={seo}>
+      <Layout withForm={true} theme="light" locale={locale} content={layoutContent} seo={seo}>
         {this.props.error ? (
           <Fragment />
         ) : (

@@ -1,0 +1,15 @@
+/*! /* purgecss start ignore */
+.gridCol1 {
+  @media(--screen-md) {
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
+}
+
+.gridCol2 {
+  @media(--screen-md) {
+    grid-column-start: 6;
+    grid-column-end: 12;
+  }
+}
+/*! /* purgecss end ignore */

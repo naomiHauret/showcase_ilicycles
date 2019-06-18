@@ -7,21 +7,27 @@ import Container from 'components/Container'
 import styles from './styles.local.css'
 import Translate from "components/Translate"
 import SelectLanguage from './SelectLanguage'
+import FormContact from './FormContact'
 import Link from "next/link"
 import { RichText } from "prismic-reactjs"
 import useWindowScroll from '@react-hook/window-scroll'
 import { useSpring, animated } from 'react-spring'
 
 const Layout = memo((props) => {
-  const { children, seo, locale, router, content, theme } = props
+  const { children, seo, locale, router, content, theme, withForm } = props
   const [translation, setLocale] = useState({ locale: props.locale, fallback: DEFAULT_LANG })
   const scrollY = useWindowScroll(60)
+  const activeBrandLinkRegex = new RegExp("^/brand$")
+  const activeProductLinkRegex = new RegExp("^/product$")
+  const activeContactLinkRegex = new RegExp("^/((contact)?)$")
+
   const themeSystem = {
     color: {
       light: 'text-black-100 md:text-white-100',
       colorful: 'text-black-100 md:text-blue-100',
     }
   }
+
   return (
     <Fragment>
       <SEOHead
@@ -66,10 +72,11 @@ const Layout = memo((props) => {
                   </li>
                   <li>
                     <Link
-                      prefetch
-                      passHref
+                      active={activeProductLinkRegex.test(router.pathname)}
+                      activeClassName={`${styles.active}`}
                       as={`/${locale}/product`}
                       href={`/product?lang=${locale}`}
+                      passHref
                     >
                       <a className="tw-unstyled-link font-600">
                         <Translate id="layout.menu.product" />
@@ -78,10 +85,11 @@ const Layout = memo((props) => {
                   </li>
                   <li>
                     <Link
-                      prefetch
-                      passHref
+                      active={activeBrandLinkRegex.test(router.pathname)}
+                      activeClassName={`${styles.active}`}
                       as={`/${locale}/brand`}
                       href={`/brand?lang=${locale}`}
+                      passHref
                     >
                       <a className=" tw-unstyled-link font-600">
                         <Translate id="layout.menu.brand" />
@@ -91,9 +99,10 @@ const Layout = memo((props) => {
                   <li>
                     <Link
                       prefetch
+                      active={activeContactLinkRegex.test(router.pathname)}
+                      activeClassName={`${styles.active}`}
+                      href={`#contact`}
                       passHref
-                      as={`/${locale}#contact`}
-                      href={`/?lang=${locale}#contact`}
                     >
                       <a className="tw-unstyled-link font-bold">
                         <Translate id="layout.menu.contact" />
@@ -110,6 +119,7 @@ const Layout = memo((props) => {
         <main role="main" className="flex-grow pt-80 md:pt-0">
           {children}
         </main>
+        {withForm && <FormContact locale={locale} title={content.move_title} text={RichText.render(content.move_text)} />}
         <footer className="bg-black-200 text-white-100 pt-50 pb-30 md:pt-60 md:pb-20">
           <Container contained={true} staticStyles={`grid gap-30 ${styles.footerGrid}`}>
             <nav className={styles.navigation}>
@@ -157,8 +167,8 @@ const Layout = memo((props) => {
                     <Link
                       prefetch
                       passHref
-                      as={`/${locale}#contact`}
-                      href={`/?lang=${locale}#contact`}
+                      as={`#contact`}
+                      href={`#contact`}
                     >
                       <a className=" tw-unstyled-link">
                         <Translate id="layout.menu.contact" />
@@ -209,9 +219,16 @@ const Layout = memo((props) => {
                 {RichText.render(content.footer_text_mission)}
               </div>
             </div>
-            <div>
-
-            </div>
+          </Container>
+          <Container staticStyles="text-9 font-500 text-center mt-40 md:mt-60" contained={true}>
+              <aside>
+                <div className="mb-25 md:mb-5">
+                    <Translate id="layout.footer.design" />
+                </div>
+                <div>
+                    <Translate id="layout.footer.development" />
+                </div>
+              </aside>
           </Container>
         </footer>
       </TranslationContext.Provider>
@@ -219,4 +236,7 @@ const Layout = memo((props) => {
   )
 })
 
+Layout.defaultProps = {
+  withForm: false,
+}
 export default withRouter(Layout)

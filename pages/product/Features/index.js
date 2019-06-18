@@ -51,7 +51,7 @@ const baseFontSize = ds.get("type.sizes.baseFontSize")
             },
           })
         }
-          className="flex justify-center mt-40 mb-50 md:mb-80 md:mt-0">
+          className="flex justify-center mt-40 mb-60 md:mb-80 md:mt-0">
           <Link
             prefetch
             passHref

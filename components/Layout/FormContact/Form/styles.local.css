@@ -1,0 +1,14 @@
+/*! /* purgecss start ignore */
+.grid {
+  @media (--screen-md) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+  }
+}
+
+.button {
+  @media (--screen-md) {
+    grid-column-start: 1;
+    grid-column-end: 2;  }
+}
+/*! /* purgecss end ignore */

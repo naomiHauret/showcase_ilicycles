@@ -92,4 +92,28 @@
   width: var(--size);
   height: var(--size);
 }
+
+.withDecoration::after {
+  content: "";
+  width: 60px;
+  height: 1px;
+  top: 50%;
+  transform: translateY(-50%) translateX(-25px);
+  @apply .right-0;
+  @apply .absolute;
+  @apply .bg-black-100;
+
+  @media (--screen-sm) {
+    transform: translateY(-50%) translateX(-15px);
+    width: 80px;
+  }
+}
+
+.active {
+  pointer-events: none;
+}
+
+.active span {
+  @apply .font-bold;
+}
 /*! /* purgecss end ignore */

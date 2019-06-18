@@ -1,6 +1,5 @@
 /*! /* purgecss start ignore */
-.animation {
-  transition: 250ms ease-in all;
+.form input::placeholder {
+  @apply .opacity-50;
 }
-
 /*! /* purgecss end ignore */
