@@ -24,7 +24,7 @@ const myDesignSystem = {
     },
   },
   breakpoints: {
-    xxs: 360,
+    xxs: 345,
     xs: 480,
     sm: 720,
     md: 991,

@@ -62,7 +62,7 @@ const FrenchTouch = memo((props) => {
             </Link>
           </animated.div>
         </div>
-        <div className={`${styles.gridCol2} mx-auto sm:mx-unset max-w-400 sm:max-w-unset`}>
+        <div className={`${styles.gridCol2} mx-auto sm:mx-unset sm:-mb-n50 max-w-400 sm:max-w-unset`}>
           <animated.img
             ref={ref}
             style={useSpring({

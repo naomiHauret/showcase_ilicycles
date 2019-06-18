@@ -158,6 +158,7 @@ module.exports = {
     margin: {
       unset: "unset",
       auto: "auto",
+      'n50': pxTo(-50, baseFontSize, "rem"),
       ...spacings,
     },
     /*

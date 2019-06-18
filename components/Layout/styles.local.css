@@ -20,19 +20,26 @@
 }
 
 .headerNav li:not(:first-child) {
-  @apply .ml-20;
+  @apply .ml-10;
+  @media (min-width: 380px) {
+    @apply .ml-20;
+  }
   @media (--screen-md) {
     @apply .ml-70;
   }
 }
 .header a:any-link {
-  @apply .font-emphasis;
   color: inherit !important;
+  white-space: nowrap;
+  @apply .font-emphasis;
   @apply .no-underline;
 }
 
 .logo {
-  --width: 63px;
+  --width: 45px;
+  @media (min-width: 380px) {
+    --width: 63px;
+  }
   @media (--screen-sm) {
     --width: 93px;
   }
