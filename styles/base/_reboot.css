@@ -102,13 +102,13 @@ a:any-link:not(.tw-button, .tw-unstyled-link) {
       transition: transform 250ms ease-in-out;
     }
   }
-      &:hover {
-&::after {
-    @media (min-width: 991px) {
-      transform: translateX(-100%);
-        }
+  &:hover {
+    &::after {
+      @media (min-width: 991px) {
+        transform: translateX(-100%);
       }
     }
+  }
   @media (min-width: 991px) {
     @apply .no-underline;
   }

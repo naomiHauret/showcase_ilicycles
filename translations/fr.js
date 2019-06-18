@@ -23,7 +23,8 @@ export default {
       openingTimesAndContact: "Horaires et contact",
       ourMission: "Notre mission",
       design: 'Design par <a class="tw-unstyled-link" href="https://lucasjouin.com">Lucas Jouin</a>',
-      development: 'Développement par  <a class="tw-unstyled-link" href="https://github.com/naomihauret">Naomi Hauret</a>',
+      development:
+        'Développement par  <a class="tw-unstyled-link" href="https://github.com/naomihauret">Naomi Hauret</a>',
     },
   },
   formContact: {
