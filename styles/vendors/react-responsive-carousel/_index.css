@@ -1,5 +1,5 @@
 /*! /* purgecss start ignore */
-@import './../../../node_modules/react-responsive-carousel/lib/styles/carousel.css';
+@import "./../../../node_modules/react-responsive-carousel/lib/styles/carousel.css";
 /* indicator 1 on X */
 .carousel .carousel-status {
   @apply .hidden;
@@ -12,7 +12,7 @@
   height: var(--size) !important;
   opacity: 100 !important;
   box-shadow: none !important;
-  background-color: theme('colors.white-100') !important;
+  background-color: theme("colors.white-100") !important;
 
   @media (min-width: 720px) {
     --size: 10px;
@@ -25,7 +25,7 @@
 }
 
 .carousel .dot.selected {
-  background-color: theme('colors.blue-100') !important;
+  background-color: theme("colors.blue-100") !important;
 }
 
 /* Controls */

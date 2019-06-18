@@ -1,4 +1,3 @@
-
 import Head from "next/head"
 import React, { memo } from "react"
 import Translate from "components/Translate"

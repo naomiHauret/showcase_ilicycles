@@ -6,14 +6,22 @@
     "MAIL_TO": ""
   },
   "builds": [{
-    "src": "package.json",
-    "use": "@now/next"
-  }],
-  "routes": [{
+      "src": "package.json",
+      "use": "@now/next"
+    },
+    {
+      "src": "/lambda/sitemap.xml.js",
+      "use": "@now/node"
+    },
+    {
+      "src": "/lambda/robots.txt.js",
+      "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
       "src": "/_next/static/(?:[^/]+/pages|chunks|runtime)/.+",
-      "headers": {
-        "cache-control": "immutable"
-      }
+      "headers": { "cache-control": "s-maxage=86400, max-age=0" }
     },
     {
       "src": "/",
@@ -58,6 +66,14 @@
         "Cache-control": "max-age=31557600",
         "Accept-Encoding": "br"
       }
+    },
+    {
+      "src": "/sitemap.xml",
+      "dest": "/lambda/sitemap.xml.js"
+    },
+    {
+      "src": "/robots.txt",
+      "dest": "/lambda/robots.txt.js"
     }
   ]
 }

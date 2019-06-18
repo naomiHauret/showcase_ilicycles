@@ -35,7 +35,12 @@ export default class MyDocument extends Document {
           <NextScript />
         </body>
         <div id="fb-root" />
-        <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.3&appId=1125593067596811&autoLogAppEvents=1"></script>
+        <script
+          async
+          defer
+          crossOrigin="anonymous"
+          src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.3&appId=1125593067596811&autoLogAppEvents=1"
+        ></script>
       </html>
     )
   }

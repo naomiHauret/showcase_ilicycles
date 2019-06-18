@@ -7,5 +7,6 @@ Allow: /*
 Allow: /en
 Allow: /en/*
 Disallow: /fr/*
+Disallow: /fr
 
 Sitemap: https://ilicycles.com/sitemap.xml

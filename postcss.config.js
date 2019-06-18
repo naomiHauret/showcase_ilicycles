@@ -12,5 +12,11 @@ module.exports = {
     }),
     require('postcss-extend')({}),
     require('tailwindcss')('./tailwind.config.js'),
+    require('cssnano')({
+      preset: [
+        'default',
+        { "discardComments": { "removeAll": false } }
+      ],
+    }),
   ],
 }

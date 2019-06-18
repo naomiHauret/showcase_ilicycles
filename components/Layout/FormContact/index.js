@@ -1,7 +1,7 @@
 import React, { memo } from "react"
-import styles from './styles.local.css'
+import styles from "./styles.local.css"
 import Container from "components/Container"
-import Form from './Form'
+import Form from "./Form"
 
 const FormContact = memo((props) => {
   const { title, text, locale } = props
@@ -20,7 +20,6 @@ const FormContact = memo((props) => {
       </Container>
     </section>
   )
-
 })
 
 export default FormContact

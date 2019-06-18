@@ -8,9 +8,9 @@ const Container = memo(({ contained, children, dynamicStyles, staticStyles, ...p
 
   return (
     <div
-      className={`mx-auto w-full px-15 xs:px-35 ${contained === true ? "sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl" : ""} ${
-        staticStyles ? staticStyles : ""
-      }
+      className={`mx-auto w-full px-15 xs:px-35 ${
+        contained === true ? "sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl" : ""
+      } ${staticStyles ? staticStyles : ""}
     `.concat(
         " ",
         css({

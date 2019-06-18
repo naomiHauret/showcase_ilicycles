@@ -64,7 +64,7 @@ module.exports = {
     fontSize: {
       inherit: "inherit",
       px: `${ds.get("type.sizes.base")}px`,
-      '12-px': `${ds.get("type.sizes.12")}px`,
+      "12-px": `${ds.get("type.sizes.12")}px`,
       // rem conversion
       ...fsizes,
     },
@@ -108,7 +108,7 @@ module.exports = {
       auto: "auto",
       screen: "100vw",
       20: pxTo(20, baseFontSize, "rem"),
-      '6/12': '50%',
+      "6/12": "50%",
       full: "100%",
     },
     height: {
@@ -136,13 +136,13 @@ module.exports = {
       400: pxTo(400, baseFontSize, "rem"),
       555: pxTo(555, baseFontSize, "rem"),
       full: "100%",
-      unset: 'unset',
+      unset: "unset",
     },
     maxHeight: {
       0: "0",
       full: "100%",
       screen: "100vh",
-      unset: 'unset',
+      unset: "unset",
     },
 
     /*

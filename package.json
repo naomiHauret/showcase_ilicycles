@@ -4,7 +4,6 @@
   "description": "Ilicycles showcase website source code.",
   "main": "index.js",
   "dependencies": {
-    "@brainhubeu/react-carousel": "^1.10.17",
     "@emotion/core": "^10.0.10",
     "@react-hook/window-scroll": "^1.0.0",
     "@rehooks/window-size": "^1.0.2",
@@ -22,7 +21,6 @@
     "react-dom": "^16.8.6",
     "react-facebook": "^8.0.4",
     "react-intersection-observer": "^8.23.0",
-    "react-medium-image-zoom": "^3.0.16",
     "react-responsive": "^7.0.0",
     "react-responsive-carousel": "^3.1.49",
     "react-select": "^3.0.4",
@@ -52,7 +50,7 @@
     "now-build": "next build",
     "preprod:deploy": "now",
     "deploy": "now --target production",
-    "format:js": "npx prettier --parser=babel --write \"tailwind.js\" \"server.js\" \"next.config.js\" \"styles/**/*.js\" \"components/**/*.js\" \"pages/**/*.js\" \"services/**/*.js\" \"store/**/*.js\" \"translations/**/*.js\" \"utils/**/*.js\"",
+    "format:js": "npx prettier --parser=babel --write \"tailwind.config.js\" \"server.js\" \"next.config.js\" \"styles/**/*.js\" \"components/**/*.js\" \"pages/**/*.js\" \"services/**/*.js\" \"store/**/*.js\" \"translations/**/*.js\" \"utils/**/*.js\"",
     "format:css": "npx prettier --parser=css --write \"styles/**/*.css\"",
     "format": "npm run format:css && npm run format:js"
   },

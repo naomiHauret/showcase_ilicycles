@@ -4,16 +4,16 @@ import Link from "next/link"
 import { Client, Prismic, linkResolver } from "utils/prismic"
 import Layout from "components/Layout"
 import { RichText } from "prismic-reactjs"
-import { AVAILABLE_LOCALES, DEFAULT_LANG } from 'utils/config'
+import { AVAILABLE_LOCALES, DEFAULT_LANG } from "utils/config"
 import Container from "components/Container"
-import Cover from './Cover'
-import Content from './Content'
+import Cover from "./Cover"
+import Content from "./Content"
 
 class Brand extends PureComponent {
   static async getInitialProps({ req }) {
     try {
-      const brand = await Client(req).query(Prismic.Predicates.at("document.type", "la_marque"), { lang : '*'  })
-      const layout = await Client(req).query(Prismic.Predicates.at("document.type", "modele_de_page"), { lang : '*'  })
+      const brand = await Client(req).query(Prismic.Predicates.at("document.type", "la_marque"), { lang: "*" })
+      const layout = await Client(req).query(Prismic.Predicates.at("document.type", "modele_de_page"), { lang: "*" })
       return { brand, layout }
     } catch (error) {
       console.log(error)
@@ -29,13 +29,13 @@ class Brand extends PureComponent {
     let layoutContent
 
     if (brand) {
-      content = brand.results.filter(result => result.lang.slice(0, 2) === locale).map(r => r.data)[0]
+      content = brand.results.filter((result) => result.lang.slice(0, 2) === locale).map((r) => r.data)[0]
       Object.keys(content).filter((key) => {
-        if ( key.includes("meta")) seo[key] = content[key]
+        if (key.includes("meta")) seo[key] = content[key]
       })
     }
     if (layout) {
-      layoutContent = layout.results.filter(result => result.lang.slice(0, 2) === locale).map(r => r.data)[0]
+      layoutContent = layout.results.filter((result) => result.lang.slice(0, 2) === locale).map((r) => r.data)[0]
     }
     return (
       <Layout withForm={true} theme="light" locale={locale} content={layoutContent} seo={seo}>
@@ -43,10 +43,14 @@ class Brand extends PureComponent {
           <Fragment />
         ) : (
           <Fragment>
-              <Cover image={content.cover_pic} title={content.cover_title} />
-              <Container contained={true} staticStyles="mb-40 md:mb-75">
-                <Content picture={content.picture} title={content.ourhistory_title} text={RichText.render(content.ourhistory_text)} />
-              </Container>
+            <Cover image={content.cover_pic} title={content.cover_title} />
+            <Container contained={true} staticStyles="mb-40 md:mb-75">
+              <Content
+                picture={content.picture}
+                title={content.ourhistory_title}
+                text={RichText.render(content.ourhistory_text)}
+              />
+            </Container>
           </Fragment>
         )}
       </Layout>

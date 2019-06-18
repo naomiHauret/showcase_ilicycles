@@ -109,6 +109,15 @@
   }
 }
 
+.credits a:any-link {
+  color: inherit !important;
+  text-decoration: underline !important;
+  &:hover,
+  &:focus {
+    text-decoration: none !important;
+  }
+}
+
 .active {
   pointer-events: none;
 }

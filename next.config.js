@@ -24,7 +24,17 @@ const nextConfig = {
 module.exports = withPlugins(
   [
     [
-      withCSS({
+      withCSS(
+        withPurgeCSS({
+          purgeCss: {
+            purgeCssPaths: ["pages/**/*", "components/**/*"],
+            extractors: [
+              {
+                extractor: TailwindExtractor,
+                extensions: ["js", "local.css", "css"],
+              },
+            ],
+          },
           cssModules: true,
           cssLoaderOptions: {
             importLoaders: 1,
@@ -39,7 +49,8 @@ module.exports = withPlugins(
               }
             },
           },
-      }),
+        }),
+      ),
     ],
   ],
   nextConfig,

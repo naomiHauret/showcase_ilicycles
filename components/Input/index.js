@@ -3,7 +3,7 @@ import { css } from "emotion"
 import { pxTo } from "design-system-utils"
 import { ds } from "styles/tokens"
 import { mq } from "styles/tokens/helper"
-import styles from './styles.local.css'
+import styles from "./styles.local.css"
 
 const baseFontSize = ds.get("type.sizes.baseFontSize")
 const themeSystem = {
@@ -21,19 +21,14 @@ const Input = (props) => {
   const { label, name, handleChange, tagType, theme } = props
   const inputProps = {}
   Object.keys(props)
-    .filter((prop) => ["label", "handleChange", "tagType", ].includes(prop) === false)
+    .filter((prop) => ["label", "handleChange", "tagType"].includes(prop) === false)
     .map((p) => (inputProps[p] = props[p]))
 
   const InputTag = tagType
   return (
     <Fragment>
-      <label
-        className={`text-14 tracking-045 text-left`}
-        htmlFor={name}
-      >
-        <div className="hidden">
-        {label}
-        </div>
+      <label className={`text-14 tracking-045 text-left`} htmlFor={name}>
+        <div className="hidden">{label}</div>
         <div
           className={`relative overflow-hidden ${tagType === "textarea" ? "" : "w-full"}`.concat(
             " ",
@@ -48,7 +43,7 @@ const Input = (props) => {
           <InputTag
             className={`
               w-full
-              ${tagType !== "textarea" ? "mt-10 md:mt-0 pb-10" : ''}
+              ${tagType !== "textarea" ? "mt-10 md:mt-0 pb-10" : ""}
               font-family-inherit text-inherit
               focus:outline-none
               bg-transparent
@@ -76,7 +71,7 @@ const Input = (props) => {
 }
 
 Input.defaultProps = {
-  theme: 'default',
+  theme: "default",
 }
 
 export default Input
