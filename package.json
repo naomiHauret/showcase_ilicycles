@@ -26,7 +26,7 @@
     "react-select": "^3.0.4",
     "react-spring": "^8.0.25",
     "react-svg": "^10.0.8",
-    "sitemap": "^2.2.0",
+    "sitemap": "^2.2.0"
   },
   "devDependencies": {
     "@zeit/next-css": "^1.0.1",

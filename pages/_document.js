@@ -29,6 +29,8 @@ export default class MyDocument extends Document {
           <link crossOrigin="anonymous" rel="preload" href="/static/fonts/ProximaNova-Medium.woff2" as="font" />
           <link crossOrigin="anonymous" rel="preload" href="/static/fonts/ProximaNova-Semibold.woff2" as="font" />
           <link crossOrigin="anonymous" rel="preload" href="/static/fonts/Roboto-Regular.woff2" as="font" />
+          <link crossOrigin="anonymous" rel="preload" href="/static/images/bicycle_mobile.png" as="image" />
+          <link crossOrigin="anonymous" rel="preload" href="/static/images/bicycle@2x_mobile.png" as="image" />
         </Head>
         <body>
           <Main />
