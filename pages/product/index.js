@@ -16,11 +16,11 @@ import Quality from "./Quality"
 import Features from "./Features"
 const baseFontSize = ds.get("type.sizes.baseFontSize")
 class Product extends PureComponent {
-  static async getInitialProps({ req, query }) {
+  static async getInitialProps({ req }) {
     try {
       const product = await Client(req).query(Prismic.Predicates.at("document.type", "le_produit"), { lang: "*" })
       const layout = await Client(req).query(Prismic.Predicates.at("document.type", "modele_de_page"), { lang: "*" })
-      return { product, layout, lang: query.lang }
+      return { product, layout }
     } catch (error) {
       console.log(error)
       return { error: true }
@@ -28,33 +28,34 @@ class Product extends PureComponent {
   }
 
   render() {
-    const { error, router, product, layout, translation, lang } = this.props
-    const locale = lang ? lang : DEFAULT_LANG
-    const seo = {}
-    let content
+    const { error, router, product, layout, translation } = this.props
+    const locale = router.query.lang ? router.query.lang : DEFAULT_LANG
+    let localizedContent = {}
+    let localizedSeo = {}
     let layoutContent
-
-    if (product) {
-      content = product.results.filter((result) => result.lang.slice(0, 2) === locale).map((r) => r.data)[0]
-      Object.keys(content).filter((key) => {
-        if (key.includes("meta")) seo[key] = content[key]
+    product.results.filter((result) => {
+      let contentLocale = result.lang.slice(0, 2)
+      localizedContent[contentLocale] = result.data
+      localizedSeo[contentLocale] = {}
+      Object.keys(localizedContent[contentLocale]).filter((key) => {
+        if (key.includes("meta")) localizedSeo[contentLocale][key] = localizedContent[contentLocale][key]
       })
-    }
+    })
     if (layout) {
       layoutContent = layout.results.filter((result) => result.lang.slice(0, 2) === locale).map((r) => r.data)[0]
     }
     if (this.props.error) return <Fragment />
     return (
-      <Layout withForm={true} theme="colorful" locale={locale} content={layoutContent} seo={seo}>
+      <Layout withForm={true} theme="colorful" locale={locale} content={layoutContent} seo={localizedSeo[locale]}>
             <div className="mt-50 md:mt-170">
               <Quality
-                title={content.quality_title}
-                subtitle={content.quality_subtitle}
-                text={RichText.render(content.quality_text)}
-                price={content.quality_price}
-                slider={content.slider}
+                title={localizedContent[locale].quality_title}
+                subtitle={localizedContent[locale].quality_subtitle}
+                text={RichText.render(localizedContent[locale].quality_text)}
+                price={localizedContent[locale].quality_price}
+                slider={localizedContent[locale].slider}
               />
-              <Features locale={locale} list={content.features} />
+              <Features locale={locale} list={localizedContent[locale].features} />
             </div>
         )}
       </Layout>

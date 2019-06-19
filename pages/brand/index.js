@@ -24,14 +24,19 @@ class Brand extends PureComponent {
   render() {
     const { error, router, brand, layout, translation } = this.props
     const locale = router.query.lang ? router.query.lang : DEFAULT_LANG
-    const seo = {}
-    let content
     let layoutContent
+    let localizedContent = {}
+    let localizedSeo = {}
+
 
     if (brand) {
-      content = brand.results.filter((result) => result.lang.slice(0, 2) === locale).map((r) => r.data)[0]
-      Object.keys(content).filter((key) => {
-        if (key.includes("meta")) seo[key] = content[key]
+      brand.results.filter((result) => {
+        let contentLocale = result.lang.slice(0, 2)
+        localizedContent[contentLocale] = result.data
+        localizedSeo[contentLocale] = {}
+        Object.keys(localizedContent[contentLocale]).filter((key) => {
+          if (key.includes("meta")) localizedSeo[contentLocale][key] = localizedContent[contentLocale][key]
+        })
       })
     }
     if (layout) {
@@ -39,13 +44,13 @@ class Brand extends PureComponent {
     }
     if (this.props.error) return <Fragment />
     return (
-      <Layout withForm={true} theme="light" locale={locale} content={layoutContent} seo={seo}>
-            <Cover image={content.cover_pic} title={content.cover_title} />
+      <Layout withForm={true} theme="light" locale={locale} content={layoutContent} seo={localizedSeo[locale]}>
+        <Cover image={localizedContent[locale].cover_pic} title={localizedContent[locale].cover_title} />
             <Container contained={true} staticStyles="mb-40 md:mb-75">
               <Content
-                picture={content.picture}
-                title={content.ourhistory_title}
-                text={RichText.render(content.ourhistory_text)}
+                picture={localizedContent[locale].picture}
+                title={localizedContent[locale].ourhistory_title}
+                text={RichText.render(localizedContent[locale].ourhistory_text)}
               />
             </Container>
       </Layout>

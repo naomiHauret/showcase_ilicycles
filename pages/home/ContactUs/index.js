@@ -18,6 +18,7 @@ const ContactUs = memo((props) => {
     <Fragment>
       <animated.h2
         ref={ref}
+        id="contact"
         style={useSpring({
           to: { opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(25px)" },
           from: { opacity: 0, transform: "translateY(25px)" },
