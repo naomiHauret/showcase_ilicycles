@@ -25,14 +25,6 @@ const Form = memo((props) => {
   // componentDidUpdate
   // Empty form fields when mail is sent
   useEffect(() => {
-    if (query.success === true) {
-      setFormData({
-        firstname: "",
-        lastname: "",
-        mail: "",
-        message: "",
-      })
-    }
     if (
       document.forms["sendEmail"].elements["*honeypot"].value === "" &&
       document.forms["sendEmail"].checkValidity() &&
@@ -57,6 +49,12 @@ const Form = memo((props) => {
       "*reply": "email",
       "*subject": "Nouveau mail",
       "*default_email": MAIL_TARGET,
+    })
+    setFormData({
+      firstname: "",
+      lastname: "",
+      mail: "",
+      message: "",
     })
   }
   return (
