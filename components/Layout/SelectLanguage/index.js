@@ -202,7 +202,7 @@ class SelectLanguage extends PureComponent {
         <MediaQuery query={`(max-width: ${pxTo(ds.get("breakpoints.md") - 1, baseFontSize, "rem")})`}>
           <div className="relative">
             <select onChange={e => this._handleNativeChange(e.target.value)} className="absolute opacity-0 top-0 left-0 w-full h-full">
-              {Object.values(options).map((option, key) => <option value={option.value} key={key}>{option.label}</option> )}
+                {Object.values(options).map((option, key) => <option selected={option.value === locale} value={option.value} key={key}>{option.label}</option> )}
             </select>
             <div className="w-20 h-20 flex">
               {options[locale].flag}

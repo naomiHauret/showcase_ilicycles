@@ -4,6 +4,7 @@ module.exports = {
   default: {
     transparent: "transparent",
     "white-100": "#FFFFFF",
+    "green-100": "#71CD8A",
     "white-200": "#e5e5e5",
     "black-100": "#161616",
     "black-200": "#0A0D16",

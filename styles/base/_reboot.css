@@ -155,6 +155,23 @@ h3 {
   @apply .font-600;
 }
 
+
+/* Inputs */
 input::placeholder {
   @apply .opacity-100;
+}
+
+input:-internal-autofill-previewed,
+input:-internal-autofill-selected,
+textarea:-internal-autofill-previewed,
+textarea:-internal-autofill-selected,
+select:-internal-autofill-previewed,
+select:-internal-autofill-selected,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  /* Removes background color for chrome autocomplete */
+  -webkit-box-shadow: 0 0 0 0 transparent inset !important;
+  background: transparent !important
 }

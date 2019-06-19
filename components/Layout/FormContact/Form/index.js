@@ -2,19 +2,20 @@ import React, { memo, Fragment, useState, useEffect } from "react"
 import Translate from "components/Translate"
 import Input from "components/Input"
 import Button from "components/Button"
+import ValidationMessage from "components/ValidationMessage"
 import { useSendMail } from "services/formContact"
 import { MAIL_TARGET } from "utils/config"
 import { useInView } from "react-intersection-observer"
 import { useSpring, animated } from "react-spring"
 import styles from "./styles.local.css"
 import { t } from "utils/translation"
-
 const Form = memo((props) => {
   // Initial state
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
     mail: "",
+    sent: false,
   })
   const [ref, inView] = useInView({
     /* Optional options */
@@ -44,33 +45,40 @@ const Form = memo((props) => {
     }
   })
 
+
   // handle form submit
   function handleSubmit(e) {
     e.preventDefault()
     sendMail({
-      sender: `${formData.firstname.trim()} ${formData.lastname.trim()}`,
+      'expéditeur': `${formData.firstname.trim()} ${formData.lastname.trim()}`,
       email: formData.mail.trim(),
       "*reply": "email",
-      "*subject": "Nouveau mail",
+      "*subject": "Nouveau mail envoyé depuis votre site",
       "*default_email": MAIL_TARGET,
     })
     setFormData({
       firstname: "",
       lastname: "",
       mail: "",
+      sent: true,
     })
+
+    setTimeout(() => setFormData({
+        ...formData,
+        sent: false,
+    }), 5000 )
   }
 
   return (
     <Fragment>
       <form
         ref={ref}
-        className={`w-full flex flex-col md:grid overflow-hidden ${styles.grid}`}
+        className={`w-full flex flex-col md:grid overflow-hidden md:items-baseline ${styles.grid}`}
         name="sendEmail"
         role="form"
         onSubmit={handleSubmit}
       >
-        <div className="my-20 md:my-0 w-full">
+        <div className="my-20 md:my-0 ">
           <Input
             handleChange={(e) =>
               setFormData({
@@ -90,7 +98,7 @@ const Form = memo((props) => {
             placeholder={t("formContact.fields.firstname", { locale: props.locale })}
           />
         </div>
-        <div className="mb-20 md:mb-0 w-full">
+        <div className="mb-20 md:mb-0 ">
           <Input
             handleChange={(e) =>
               setFormData({
@@ -110,7 +118,7 @@ const Form = memo((props) => {
             placeholder={t("formContact.fields.lastname", { locale: props.locale })}
           />
         </div>
-        <div className="w-full">
+        <div className="">
           <Input
             handleChange={(e) =>
               setFormData({
@@ -146,6 +154,9 @@ const Form = memo((props) => {
           <Button tagType="button" theme="primary" variant="inverted" type="submit" disabled={submitDisabled}>
             <Translate id="formContact.interested" />
           </Button>
+        </div>
+        <div className="text-center md:text-left mt-20 md:mt-0">
+          {formData.sent === true && <ValidationMessage><Translate id="formContact.messageSent" /></ValidationMessage>}
         </div>
       </form>
     </Fragment>

@@ -28,6 +28,7 @@ export default {
     },
   },
   formContact: {
+    messageSent: 'Votre message a bien été envoyé',
     send: "Envoyer",
     interested: "Je suis intéressé",
     fields: {
