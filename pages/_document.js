@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
       <html lang="fr">
         <Head>
           <meta charSet="UTF-8" />
-          <meta name="google-site-verification" content="" />
+          <meta name="google-site-verification" content="qnF9YiXD3yDtJ3zjT5Oo7FC7OGU_B0fs3pr0G4JrHJ4" />
           <meta name="viewport" content="width=device-width,initial-scale=1" />
           <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
           <meta name="author" content="Ili Cycles" />
