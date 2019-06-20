@@ -11,4 +11,15 @@
     grid-column-start: 1;
     grid-column-end: 2;  }
 }
+
+@media not all and (min-resolution:.001dpcm) {
+  @media {
+    .safariMaxW {
+      @media (--screen-md) {
+        max-width: 210px;
+      }
+    }
+  }
+}
+
 /*! /* purgecss end ignore */

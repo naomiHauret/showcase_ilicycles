@@ -57,7 +57,6 @@ class Product extends PureComponent {
               />
               <Features locale={locale} list={localizedContent[locale].features} />
             </div>
-        )}
       </Layout>
     )
   }

@@ -78,7 +78,7 @@ const Form = memo((props) => {
         role="form"
         onSubmit={handleSubmit}
       >
-        <div className="my-20 md:my-0 ">
+        <div className={`my-20 md:my-0 ${styles.safariMaxW}`}>
           <Input
             handleChange={(e) =>
               setFormData({
@@ -98,7 +98,7 @@ const Form = memo((props) => {
             placeholder={t("formContact.fields.firstname", { locale: props.locale })}
           />
         </div>
-        <div className="mb-20 md:mb-0 ">
+        <div className={`mb-20 md:mb-0 ${styles.safariMaxW}`}>
           <Input
             handleChange={(e) =>
               setFormData({
@@ -118,7 +118,7 @@ const Form = memo((props) => {
             placeholder={t("formContact.fields.lastname", { locale: props.locale })}
           />
         </div>
-        <div className="">
+        <div className={styles.safariMaxW}>
           <Input
             handleChange={(e) =>
               setFormData({
