@@ -3,6 +3,7 @@
 
 import Document, { Head, Main, NextScript } from "next/document"
 import { Fragment } from "react"
+import { ANALYTICS } from "utils/config"
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -10,6 +11,16 @@ export default class MyDocument extends Document {
     const initialProps = await Document.getInitialProps(ctx)
     return { ...initialProps, isProduction }
   }
+_setGoogleTags() {
+  return {
+    __html: `
+        window.dataLayer = window.dataLayer || []
+        function gtag(){dataLayer.push(arguments)}
+        gtag('js', new Date())
+        gtag('config', "${ANALYTICS}")
+      `,
+  }
+}
 
   render() {
     const { isProduction } = this.props
@@ -35,6 +46,12 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          {isProduction && (
+            <Fragment>
+              <script async src={`https://www.googletagmanager.com/gtag/js?id=${ANALYTICS}`} />
+              <script dangerouslySetInnerHTML={this._setGoogleTags()} />
+            </Fragment>
+          )}
         </body>
         <div id="fb-root" />
         <script
